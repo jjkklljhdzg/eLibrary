@@ -9,6 +9,10 @@
     padding: 0;
 }
 
+html {
+    scrollbar-gutter: stable;
+}
+
 body {
     background-color: #201D30;
     font-family: "Eugusto", serif, sans-serif;
@@ -17,7 +21,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px 16px 30px;
+    justify-content: center; /* Центрируем форму строго по вертикали */
+    padding: 40px 16px;
 }
 
 header {
@@ -44,7 +49,7 @@ h1 {
 
 main {
     width: 100%;
-    max-width: 380px;
+    max-width: 380px; /* Фиксированный размер контентного блока */
 }
 
 #registerForm {
@@ -55,6 +60,8 @@ main {
     flex-direction: column;
     align-items: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    min-height: 460px; /* Одинаковая высота с формой входа */
 }
 
 legend {
@@ -107,7 +114,7 @@ input:focus {
     font-family: inherit;
     font-size: 1.1rem;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: auto; /* Прижимает кнопку к низу карточки */
     margin-bottom: 16px;
     transition: transform 0.15s ease, background-color 0.2s ease;
 }
@@ -115,7 +122,6 @@ input:focus {
 #but:hover {
     background-color: #e5b44f;
 }
-
 
 a {
     color: #F8C761;
@@ -128,14 +134,21 @@ a:hover {
     opacity: 0.85;
 }
 
+@media (max-width: 400px) {
+    main {
+        max-width: 100%;
+    }
+}
+
 @media (max-width: 360px) {
     body {
-        padding: 20px 10px 20px;
+        padding: 20px 10px;
     }
 
     #registerForm {
         padding: 20px 16px;
         border-radius: 22px;
+        min-height: auto;
     }
 
     h1 {

@@ -9,6 +9,15 @@
     padding: 0;
 }
 
+html {
+    scrollbar-gutter: stable;
+}
+
+.catalog-section {
+    width: 100%;
+    min-height: 450px;
+}
+
 body {
     background-color: #201D30;
     font-family: "Eugusto", serif, sans-serif;

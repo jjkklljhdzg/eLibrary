@@ -9,6 +9,11 @@
     padding: 0;
 }
 
+/* Фиксируем скроллбар, чтобы страница не прыгала влево/вправо */
+html {
+    scrollbar-gutter: stable;
+}
+
 body {
     background-color: #201D30;
     font-family: "Eugusto", serif, sans-serif;
@@ -17,7 +22,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 150px 16px 20px;
+    justify-content: center; /* Центрируем форму строго по вертикали */
+    padding: 40px 16px;
 }
 
 header {
@@ -44,17 +50,19 @@ h1 {
 
 main {
     width: 100%;
-    max-width: 380px;
+    max-width: 380px; /* Фиксированный размер контентного блока */
 }
 
 #autorForm {
     background-color: #595082;
     border-radius: 28px;
-    padding: 36px 28px;
+    padding: 32px 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    min-height: 460px; /* Выравниваем минимальную высоту с формой регистрации */
 }
 
 legend {
@@ -100,7 +108,7 @@ input:focus {
     font-family: inherit;
     font-size: 1.2rem;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: auto; /* Прижимает кнопку к низу фиксированной карточки */
     margin-bottom: 20px;
     transition: transform 0.15s ease, background-color 0.2s ease;
 }
@@ -108,7 +116,6 @@ input:focus {
 #but:hover {
     background-color: #e5b44f;
 }
-
 
 a {
     color: #F8C761;
@@ -128,14 +135,21 @@ a:hover {
     padding-left: 10px;
 }
 
+@media (max-width: 400px) {
+    main {
+        max-width: 100%;
+    }
+}
+
 @media (max-width: 360px) {
     body {
-        padding: 100px 10px 16px;
+        padding: 20px 10px;
     }
 
     #autorForm {
         padding: 24px 18px;
         border-radius: 22px;
+        min-height: auto;
     }
 
     h1 {
