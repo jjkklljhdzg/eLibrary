@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход</title>
+    <link rel="stylesheet" href="../styles/sign-in-styles.css">
+</head>
+<body>
+    <header>
+        <img src="../assets/images/logo.svg" alt="Логотип">
+        <h1>MyBook</h1>
+    </header>
+    <main>
+        <form id="autorForm" novalidate>
+            <legend>Вход</legend>
+
+            <label>Логин
+                <input id="login" type="text" placeholder="login">
+                <span class="error-message" id="loginError"></span>
+            </label>
+
+            <label>Пароль
+                <input id="password" type="password" placeholder="example">
+                <span class="error-message" id="passwordError"></span>
+            </label>
+
+            <button type="submit" id="but">Войти</button>
+            <a href="sign-up.html">Нет аккаунта?</a>
+        </form>
+    </main>
+
+    <script>
+        const form = document.getElementById('autorForm');
+        const loginInput = document.getElementById('login');
+        const passwordInput = document.getElementById('password');
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            document.getElementById('loginError').textContent = '';
+            document.getElementById('passwordError').textContent = '';
+
+            let hasErrors = false;
+
+            if (loginInput.value.trim() === '') {
+                document.getElementById('loginError').textContent = 'Заполните поле логин';
+                hasErrors = true;
+            }
+
+            if (passwordInput.value === '') {
+                document.getElementById('passwordError').textContent = 'Заполните пароль';
+                hasErrors = true;
+            } else if (passwordInput.value.length < 8) {
+                document.getElementById('passwordError').textContent = 'Пароль должен содержать минимум 8 символов';
+                hasErrors = true;
+            }
+
+            if (hasErrors) {
+                return;
+            }
+
+            alert('Вход успешен!');
+            window.location.href = '../index.html';
+        });
+    </script>
+</body>
+</html>

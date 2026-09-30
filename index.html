@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyBook — Главная</title>
+    <link rel="stylesheet" href="styles/index-style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="assets/images/logo.svg" alt="Логотип">
+                <h1>MyBook</h1>
+            </div>
+            <a href="pages/sign-in.html" class="profile-icon">
+                <img src="assets/images/user.png" alt="Профиль">
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section class="banner">
+            <h2>MyBook — уютный уголок для чтения</h2>
+            <p>Открой для себя тысячи книг прямо в своём браузере.</p>
+            <a href="pages/catalog.html" class="btn-catalog">Каталог</a>
+        </section>
+
+        <section class="slider-section">
+            <h2>Новинки</h2>
+            <div class="slider-wrapper">
+                <div class="cards-container" id="newSlider">
+                    <div class="book-card">
+                        <img src="assets/images/book1.jpg" alt="Обложка" class="book-cover">
+                        <div class="book-info">
+                            <p class="book-title">Шестёрка воронов</p>
+                            <p class="book-author">Ли Бардуго</p>
+                            <p class="book-rating">★ 4.9</p>
+                        </div>
+                    </div>
+                    <div class="book-card">
+                        <img src="assets/images/book2.webp" alt="Обложка" class="book-cover">
+                        <div class="book-info">
+                            <p class="book-title">Продажное Королевство</p>
+                            <p class="book-author">Ли Бардуго</p>
+                            <p class="book-rating">★ 5</p>
+                        </div>
+                    </div>
+                    <div class="book-card">
+                        <img src="assets/images/book3.jpg" alt="Обложка" class="book-cover">
+                        <div class="book-info">
+                            <p class="book-title">Дом в котором...</p>
+                            <p class="book-author">Мариам Петросян</p>
+                            <p class="book-rating">★ 4.9</p>
+                        </div>
+                    </div>
+                    <div class="book-card">
+                        <img src="assets/images/book4.webp" alt="Обложка" class="book-cover">
+                        <div class="book-info">
+                            <p class="book-title">Макабр</p>
+                            <p class="book-author">Мила Нокс</p>
+                            <p class="book-rating">★ 4.9</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="slider-btn" onclick="scrollSlider('newSlider', 160)" aria-label="Вперед">
+                    <img src="assets/images/next.svg" alt="Стрелка вправо">
+                </button>
+            </div>
+        </section>
+
+        <section class="slider-section">
+            <h2>Популярное</h2>
+            <div class="slider-wrapper">
+                <div class="cards-container" id="popSlider">
+                    <div class="book-card">
+                        <img src="assets/images/book5.jpg" alt="Обложка" class="book-cover">
+                        <div class="book-info">
+                            <p class="book-title">Благие знамения</p>
+                            <p class="book-author">Т. Пратчетт, Н. Гейман</p>
+                            <p class="book-rating">★ 4.9</p>
+                        </div>
+                    </div>
+                    <div class="book-card">
+                        <img src="assets/images/book6.jpg" alt="Обложка" class="book-cover">
+                        <div class="book-info">
+                            <p class="book-title">Книжная кухня</p>
+                            <p class="book-author">Ким Чжи Хе</p>
+                            <p class="book-rating">★ 4.6</p>
+                        </div>
+                    </div>
+                    <div class="book-card">
+                        <img src="assets/images/book7.webp" alt="Обложка" class="book-cover">
+                        <div class="book-info">
+                            <p class="book-title">Похититель детей</p>
+                            <p class="book-author">Джеральд Бром</p>
+                            <p class="book-rating">★ 4.9</p>
+                        </div>
+                    </div>
+                    <div class="book-card">
+                        <img src="assets/images/book8.jpg" alt="Обложка" class="book-cover">
+                        <div class="book-info">
+                            <p class="book-title">Ученица</p>
+                            <p class="book-author">Тара Вестовер</p>
+                            <p class="book-rating">★ 4.8</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="slider-btn" onclick="scrollSlider('popSlider', 160)" aria-label="Вперед">
+                    <img src="assets/images/next.svg" alt="Стрелка вправо">
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <a href="#">Пользовательское соглашение</a>
+            <a href="#">Политика конфиденциальности</a>
+            <p>Все права защищены 2026 © MyBook</p>
+        </div>
+    </footer>
+
+    <script>
+        function scrollSlider(sliderId, distance) {
+            const slider = document.getElementById(sliderId);
+            slider.scrollBy({
+                left: distance,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>

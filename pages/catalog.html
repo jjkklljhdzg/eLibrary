@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyBook — Каталог</title>
+    <link rel="stylesheet" href="../styles/catalog-styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <a href="../index.html" class="logo">
+                <img src="../assets/images/logo.svg" alt="Логотип">
+                <h1>MyBook</h1>
+            </a>
+            <a href="../pages/sign-in.html" class="profile-icon">
+                <img src="../assets/images/user.png" alt="Профиль">
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section class="search-section">
+            <h2>Поиск</h2>
+            <input type="text" id="searchInput" placeholder="поиск...">
+        </section>
+
+        <section class="catalog-section">
+            <div class="catalog-grid" id="catalogGrid">
+                <div class="book-card">
+                    <img src="../assets/images/book1.jpg" alt="Обложка" class="book-cover">
+                    <div class="book-info">
+                        <p class="book-title">Шестёрка воронов</p>
+                        <p class="book-author">Ли Бардуго</p>
+                        <p class="book-rating">★ 4.9</p>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <img src="../assets/images/book2.webp" alt="Обложка" class="book-cover">
+                    <div class="book-info">
+                        <p class="book-title">Продажное Королевство</p>
+                        <p class="book-author">Ли Бардуго</p>
+                        <p class="book-rating">★ 5</p>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <img src="../assets/images/book3.jpg" alt="Обложка" class="book-cover">
+                    <div class="book-info">
+                        <p class="book-title">Дом в котором...</p>
+                        <p class="book-author">Мариам Петросян</p>
+                        <p class="book-rating">★ 4.9</p>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <img src="../assets/images/book4.webp" alt="Обложка" class="book-cover">
+                    <div class="book-info">
+                        <p class="book-title">Макабр</p>
+                        <p class="book-author">Мила Нокс</p>
+                        <p class="book-rating">★ 4.9</p>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <img src="../assets/images/book5.jpg" alt="Обложка" class="book-cover">
+                    <div class="book-info">
+                        <p class="book-title">Благие знамения</p>
+                        <p class="book-author">Т. Пратчетт, Н. Гейман</p>
+                        <p class="book-rating">★ 4.9</p>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <img src="../assets/images/book6.jpg" alt="Обложка" class="book-cover">
+                    <div class="book-info">
+                        <p class="book-title">Книжная кухня</p>
+                        <p class="book-author">Ким Чжи Хе</p>
+                        <p class="book-rating">★ 4.6</p>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <img src="../assets/images/book7.webp" alt="Обложка" class="book-cover">
+                    <div class="book-info">
+                        <p class="book-title">Похититель детей</p>
+                        <p class="book-author">Джеральд Бром</p>
+                        <p class="book-rating">★ 4.9</p>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <img src="../assets/images/book8.jpg" alt="Обложка" class="book-cover">
+                    <div class="book-info">
+                        <p class="book-title">Ученица</p>
+                        <p class="book-author">Тара Вестовер</p>
+                        <p class="book-rating">★ 4.8</p>
+                    </div>
+                </div>
+            </div>
+            <p id="noResults" class="no-results">Ничего не найдено</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <a href="#">Пользовательское соглашение</a>
+            <a href="#">Политика конфиденциальности</a>
+            <p>Все права защищены 2026 © MyBook</p>
+        </div>
+    </footer>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const bookCards = document.querySelectorAll('.book-card');
+        const noResults = document.getElementById('noResults');
+
+        searchInput.addEventListener('input', function () {
+            const query = searchInput.value.toLowerCase().trim();
+            let foundCount = 0;
+
+            bookCards.forEach(function (card) {
+                const title = card.querySelector('.book-title').textContent.toLowerCase();
+                const author = card.querySelector('.book-author').textContent.toLowerCase();
+
+                if (title.includes(query) || author.includes(query)) {
+                    card.style.display = 'flex';
+                    foundCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            if (foundCount === 0) {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html>
